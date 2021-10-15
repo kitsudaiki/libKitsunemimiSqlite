@@ -1,6 +1,6 @@
 QT -= qt core gui
 
-TARGET = KitsunemimiCpu
+TARGET = KitsunemimiSqlite
 TEMPLATE = lib
 CONFIG += c++17
 VERSION = 0.1.0
@@ -10,12 +10,14 @@ LIBS += -L../../libKitsunemimiCommon/src/debug -lKitsunemimiCommon
 LIBS += -L../../libKitsunemimiCommon/src/release -lKitsunemimiCommon
 INCLUDEPATH += ../../libKitsunemimiCommon/include
 
+LIBS += -lsqlite3
+
 INCLUDEPATH += $$PWD \
                $$PWD/../include
 
 HEADERS += \
-    ../include/libKitsunemimiSqlite/cpu.h
+    ../include/libKitsunemimiSqlite/sqlite.h
 
 SOURCES += \
-    cpu.cpp
+    sqlite.cpp
 

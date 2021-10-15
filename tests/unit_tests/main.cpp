@@ -1,10 +1,9 @@
 #include <iostream>
 
-#include <libKitsunemimiSqlite/cpu.h>
-#include <libKitsunemimiCommon/threading/thread.h>
+#include <sqlite_test.h>
 
 int main()
 {
-    std::cout<<"cpus: "<<Kitsunemimi::Cpu::getNumberOfCpuThreads()<<std::endl;
+    Kitsunemimi::Sqlite::Sqlite_Test();
     return 0;
 }
