@@ -46,20 +46,21 @@ Sqlite::~Sqlite()
  * @brief initialize database
  *
  * @param path file-path of the existing or new sqlite file
- * @param errorMessage reference for error-message output
+ * @param error reference for error-message output
  *
  * @return true, if seccessful, else false
  */
 bool
 Sqlite::initDB(const std::string &path,
-               std::string &errorMessage)
+               ErrorContainer &error)
 {
     m_rc = sqlite3_open(path.c_str(), &m_db);
 
     if(m_rc != 0)
     {
-        errorMessage = "Can't open database: \n";
-        errorMessage.append(sqlite3_errmsg(m_db));
+        error.errorMessage = "Can't open database: \n";
+        error.errorMessage.append(sqlite3_errmsg(m_db));
+        LOG_ERROR(error);
         return false;
     }
 
@@ -117,14 +118,14 @@ callback(void* data,
  *
  * @param resultTable table-item, which should contain the result
  * @param command sql-command for execution
- * @param errorMessage reference for error-message output
+ * @param error reference for error-message output
  *
  * @return true, if seccessful, else false
  */
 bool
 Sqlite::execSqlCommand(TableItem* resultTable,
                        const std::string &command,
-                       std::string &errorMessage)
+                       ErrorContainer &error)
 {
     // run command
     char* err = nullptr;
@@ -137,9 +138,9 @@ Sqlite::execSqlCommand(TableItem* resultTable,
     // check result state
     if(m_rc != SQLITE_OK)
     {
-        errorMessage = "SQL error: " + std::string(err);
+        error.errorMessage = "SQL error: " + std::string(err);
         sqlite3_free(err);
-
+        LOG_ERROR(error);
         return false;
     }
 

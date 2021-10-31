@@ -22,6 +22,7 @@
 #include <utility>
 #include <vector>
 #include <sqlite3.h>
+#include <libKitsunemimiCommon/logger.h>
 
 namespace Kitsunemimi
 {
@@ -36,11 +37,11 @@ public:
     ~Sqlite();
 
     bool initDB(const std::string &path,
-                std::string &errorMessage);
+                ErrorContainer &error);
 
     bool execSqlCommand(TableItem* resultTable,
                         const std::string &command,
-                        std::string &errorMessage);
+                        ErrorContainer &error);
 
     bool closeDB();
 
