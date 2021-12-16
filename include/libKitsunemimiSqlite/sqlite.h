@@ -21,6 +21,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+#include <regex>
 #include <sqlite3.h>
 #include <libKitsunemimiCommon/logger.h>
 

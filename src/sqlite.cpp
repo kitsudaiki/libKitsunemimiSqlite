@@ -100,10 +100,53 @@ callback(void* data,
         }
     }
 
+    const std::regex intVal("^-?([0-9]+)$");
+    const std::regex floatVal("^-?([0-9]+)\\.([0-9]+)$");
+
     // collect row-data
-    std::vector<std::string> row;
-    for(int i = 0; i < argc; i++) {
-        row.push_back(std::string(argv[i] ? argv[i] : "NULL"));
+    DataArray* row = new DataArray();
+    for(int i = 0; i < argc; i++)
+    {
+        if(argv[i])
+        {
+            const std::string value = argv[i];
+
+            // true
+            if(value == "True"
+                    || value == "true"
+                    || value == "TRUE")
+            {
+                row->append(new DataValue(true));
+            }
+            // false
+            else if(value == "False"
+                    || value == "false"
+                    || value == "FALSE")
+            {
+                row->append(new DataValue(false));
+            }
+            // int/long
+            else if(regex_match(value, intVal))
+            {
+                const long longVal = std::strtol(value.c_str(), NULL, 10);
+                row->append(new DataValue(longVal));
+            }
+            // float/double
+            else if(regex_match(value, floatVal))
+            {
+                const double doubleVal = std::strtod(value.c_str(), NULL);
+                row->append(new DataValue(doubleVal));
+            }
+            // string
+            else
+            {
+                row->append(new DataValue(value));
+            }
+        }
+        else
+        {
+            row->append(new DataValue("NULL"));
+        }
     }
 
     // add row to the table-item
