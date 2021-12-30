@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0] - 2021-12-30
+
+### Added
+- value-parsing while reading table
+
+
 ## [0.2.0] - 2021-11-19
 
 ### Changed
