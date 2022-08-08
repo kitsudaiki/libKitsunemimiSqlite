@@ -16,8 +16,8 @@
  */
 
 #include <libKitsunemimiSqlite/sqlite.h>
-#include <libKitsunemimiCommon/common_items/table_item.h>
-#include <libKitsunemimiCommon/common_items/data_items.h>
+#include <libKitsunemimiCommon/items/table_item.h>
+#include <libKitsunemimiCommon/items/data_items.h>
 
 using Kitsunemimi::DataItem;
 using Kitsunemimi::DataMap;

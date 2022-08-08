@@ -9,7 +9,7 @@
 #include "sqlite_test.h"
 
 #include <libKitsunemimiSqlite/sqlite.h>
-#include <libKitsunemimiCommon/common_items/table_item.h>
+#include <libKitsunemimiCommon/items/table_item.h>
 
 namespace Kitsunemimi
 {
