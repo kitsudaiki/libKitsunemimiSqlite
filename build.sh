@@ -53,6 +53,9 @@ function get_required_kitsune_lib_repo () {
 
 get_required_kitsune_lib_repo "libKitsunemimiCommon" "develop" 8 "staticlib"
 
+get_required_kitsune_lib_repo "libKitsunemimiJson" "develop" 1 "staticlib"
+
+
 #-----------------------------------------------------------------------------------------------------------------
 
 if [ $1 = "test" ]; then
