@@ -12,6 +12,12 @@ LIBS += -L../../../libKitsunemimiCommon/src/debug -lKitsunemimiCommon
 LIBS += -L../../../libKitsunemimiCommon/src/release -lKitsunemimiCommon
 INCLUDEPATH += ../../../libKitsunemimiCommon/include
 
+LIBS += -L../../../libKitsunemimiJson/src -lKitsunemimiJson
+LIBS += -L../../../libKitsunemimiJson/src/debug -lKitsunemimiJson
+LIBS += -L../../../libKitsunemimiJson/src/release -lKitsunemimiJson
+INCLUDEPATH += ../../l../ibKitsunemimiJson/include
+
+
 LIBS += -lsqlite3
 
 INCLUDEPATH += $$PWD

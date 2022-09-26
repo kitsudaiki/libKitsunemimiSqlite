@@ -18,6 +18,7 @@
 #include <libKitsunemimiSqlite/sqlite.h>
 #include <libKitsunemimiCommon/items/table_item.h>
 #include <libKitsunemimiCommon/items/data_items.h>
+#include <libKitsunemimiJson/json_item.h>
 
 using Kitsunemimi::DataItem;
 using Kitsunemimi::DataMap;
@@ -87,6 +88,7 @@ callback(void* data,
         return 0;
     }
 
+    ErrorContainer error;
     TableItem* result = static_cast<TableItem*>(data);
 
     // add columns to the table-item, but only the first time
@@ -136,6 +138,28 @@ callback(void* data,
             {
                 const double doubleVal = std::strtod(value.c_str(), NULL);
                 row->append(new DataValue(doubleVal));
+            }
+            // json-map
+            else if(value.size() > 0
+                    && value.at(0) == '{')
+            {
+                Kitsunemimi::Json::JsonItem json;
+                if(json.parse(value, error) == false) {
+                    row->append(new DataValue(value));
+                }
+
+                row->append(json.stealItemContent());
+            }
+            // json-array
+            else if(value.size() > 0
+                    && value.at(0) == '[')
+            {
+                Kitsunemimi::Json::JsonItem json;
+                if(json.parse(value, error) == false) {
+                    row->append(new DataValue(value));
+                }
+
+                row->append(json.stealItemContent());
             }
             // string
             else
