@@ -15,8 +15,6 @@
 
 namespace Kitsunemimi
 {
-namespace Sqlite
-{
 
 class Sqlite_Test
         : public Kitsunemimi::CompareTestHelper
@@ -35,7 +33,6 @@ private:
     void deleteFile();
 };
 
-} // namespace Sqlite
 } // namespace Kitsunemimi
 
 #endif // SQLITE_TEST_H
