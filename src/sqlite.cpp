@@ -27,8 +27,6 @@ using Kitsunemimi::DataValue;
 
 namespace Kitsunemimi
 {
-namespace Sqlite
-{
 
 /**
  * @brief constructor
@@ -143,7 +141,7 @@ callback(void* data,
             else if(value.size() > 0
                     && value.at(0) == '{')
             {
-                Kitsunemimi::Json::JsonItem json;
+                Kitsunemimi::JsonItem json;
                 if(json.parse(value, error) == false) {
                     row->append(new DataValue(value));
                 }
@@ -154,7 +152,7 @@ callback(void* data,
             else if(value.size() > 0
                     && value.at(0) == '[')
             {
-                Kitsunemimi::Json::JsonItem json;
+                Kitsunemimi::JsonItem json;
                 if(json.parse(value, error) == false) {
                     row->append(new DataValue(value));
                 }
@@ -231,5 +229,4 @@ Sqlite::closeDB()
     return false;
 }
 
-} // namespace Sqlite
 } // namespace Kitsunemimi

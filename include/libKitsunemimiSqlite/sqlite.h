@@ -28,8 +28,6 @@
 namespace Kitsunemimi
 {
 class TableItem;
-namespace Sqlite
-{
 
 class Sqlite
 {
@@ -51,7 +49,6 @@ private:
     int m_rc = 0;
 };
 
-} // namespace Sqlite
 } // namespace Kitsunemimi
 
 #endif // SQLITE_H

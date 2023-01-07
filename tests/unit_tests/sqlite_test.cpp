@@ -13,8 +13,6 @@
 
 namespace Kitsunemimi
 {
-namespace Sqlite
-{
 
 Sqlite_Test::Sqlite_Test()
     : Kitsunemimi::CompareTestHelper("Sqlite_Test")
@@ -198,5 +196,4 @@ Sqlite_Test::deleteFile()
     }
 }
 
-} // namespace Sqlite
 } // namespace Kitsunemimi
