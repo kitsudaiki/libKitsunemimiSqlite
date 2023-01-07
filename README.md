@@ -63,7 +63,7 @@ Tested on Debian and Ubuntu. If you use Centos, Arch, etc and the build-script f
 #include <libKitsunemimiCommon/items/table_item.h>
 
 
-Kitsunemimi::Sqlite::Sqlite testDB;
+Kitsunemimi::Sqlite testDB;
 Kitsunemimi::ErrorContainer error;
 bool ret = false;
 std::string query = "";
